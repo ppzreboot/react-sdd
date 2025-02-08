@@ -1,0 +1,17 @@
+{
+  "type": "module",
+  "scripts": {
+    "build": "node ./script/build-lib.js",
+    "demo": "node ./script/demo.js"
+  },
+  "peerDependencies": {
+    "zustand": "^5.0.3"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "esbuild": "^0.25.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
