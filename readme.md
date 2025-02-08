@@ -1,13 +1,22 @@
 # react-sdd
 
 ## DEV
+
+##### run demo
+
 ``` bash
-git clone git@github.com:ppzreboot/react-sdd.git
-cd react-sdd
-
-# run demo
 npm run demo
+```
 
-# build lib
+##### build lib
+``` bash
 npm run build
+```
+
+##### publish
+
+``` bash
+npm run build
+cd dist
+npm publish --access public
 ```
