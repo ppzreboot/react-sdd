@@ -28,3 +28,23 @@ const SDD = <State>(initial_state: State, v?: I_validate<State>) => {
 
 export
 type I_SDD<State> = ReturnType<typeof SDD<State>>
+
+export
+interface I_SDD_unit<Val> {
+  val: Val
+  set: (calc: (ov: Val) => Val) => void
+}
+
+export
+function SDD_unit<State, Key extends keyof State>
+(sdd: I_SDD<State>, key: Key): I_SDD_unit<State[Key]> {
+  return {
+    val: sdd.useState(s => s[key]),
+    set: (calc) =>
+      sdd.set_state(os =>
+        // @ts-ignore
+        ({ [key]: calc(os[key]) })
+      )
+    ,
+  }
+}

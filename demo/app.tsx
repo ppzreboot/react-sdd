@@ -1,5 +1,5 @@
+import { I_SDD_unit, SDD_unit } from '../dist'
 import { app_state, I_page2 } from './sdd'
-
 
 export
 function APP() {
@@ -22,17 +22,26 @@ function Page2(props: I_page2) {
           }}
         />
       </div>
-      <div>
-        <label>Age</label>
-        <input
-          value={user.age}
-          onChange={evt => {
-            props.user.set_state(os => ({
-              age: Number(evt.target.value),
-            }))
-          }}
-        />
-      </div>
+      <AgeInput
+        age={SDD_unit(props.user, 'age')}
+      />
     </div>
   )
+}
+
+function AgeInput(props: { age: I_SDD_unit<number> }) {
+  return <div>
+    <label>Age</label>
+    <input
+      value={props.age.val}
+      onChange={evt => {
+        props.age.set(ov => {
+          const age = Number(evt.target.value)
+          if (isNaN(age))
+            return ov
+          return age
+        })
+      }}
+    />
+  </div>
 }
