@@ -25,7 +25,7 @@ function output_misc() {
   writeFileSync('dist/package.json', JSON.stringify({
     name: 'react-sdd',
     description: 'State-Driven Dev for React.',
-    version: '0.0.0',
+    version: '0.0.1',
 
     repository: 'github:ppzreboot/react-sdd',
     author: 'PPz',
